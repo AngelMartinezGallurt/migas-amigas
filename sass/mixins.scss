@@ -1,0 +1,78 @@
+////
+/// @author Ángel Martínez Gallurt
+////
+
+///
+/// Este mixin crea un slider de ancho completo con una imagen de fondo.
+/// También posiciona los controles del slider.
+/// @group 09-sliders
+/// @param {string} $img - Selecciona la imagen por defecto como el fondo del slider
+
+@mixin slider($img) {
+  width: 100%;
+  height: $slider-height;
+  padding: 100px $lateral-padding 0;
+  background-image: url("#{$img}");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  position: relative;
+
+  .slide-control {
+    width: 50px;
+    height: $slide-control-height;
+    background-color: $semitransparent-primary-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: calc(($slider-height - $slide-control-height) / 2);
+  }
+
+  #previous-slide {
+    left: 0;
+    img {
+      transform: scaleX(-1);
+    }
+  }
+
+  #next-slide {
+    right: 0;
+  }
+}
+
+///
+/// Este mixin elimina los estilos por defectos de un enlace o de enlaces dentro del elemento.
+/// Para ello, hereda el color de texto que recibiría de no ser por el navegador y elimina el subrayado.
+
+@mixin no-style-link {
+  text-decoration: none;
+  color: inherit;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+///
+/// Este mixin modifica una flecha rotándola y posicionándola de forma absoluta sobre el contedor.
+/// @param {degrees} $rotation [0deg] - Indica los grados que rotaremos el elemento
+/// @param {number} $top [auto] - Indica la distancia del elemento con respecto a la parte superior del primer ancestro posicionado
+/// @param {number} $right [auto] - Indica la distancia del elemento con respecto a la parte derecha del primer ancestro posicionado
+/// @param {number} $bottom [auto] - Indica la distancia del elemento con respecto a la parte inferior del primer ancestro posicionado
+/// @param {number} $left [auto] - Indica la distancia del elemento con respecto a la parte izquierda del primer ancestro posicionado
+
+@mixin arrow(
+  $rotation: 0deg,
+  $top: auto,
+  $right: auto,
+  $bottom: auto,
+  $left: auto
+) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  transform: rotate($rotation);
+}

@@ -1,0 +1,13 @@
+////
+/// @author Ángel Martínez Gallurt
+////
+
+/// Esta función devuelve el porcentaje que ocupa una columna en un máximo de columnas.
+/// @group 06-columnas
+/// @param {number} $col Este parámetro especifica de qué columna queremos averiguar el tamaño
+/// @param {number} $column-max Este parámetro especifica cuál es el máximo de columnas
+/// @return {percentage} Devuelve el porcentaje que ocupa la columna elegida sobre el máximo
+
+@function grid($col, $column-max) {
+  @return calc(100 / $column-max * $col) + #{"%"};
+}

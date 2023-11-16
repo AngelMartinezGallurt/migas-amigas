@@ -1,0 +1,323 @@
+////
+/// @author Ángel Martínez Gallurt
+////
+
+/// @group 10-estilos-generales
+* {
+  box-sizing: border-box;
+}
+
+/// @group 10-estilos-generales
+body {
+  margin: 0;
+  background-color: $light-color;
+  color: $dark-color;
+  font-family: "Poppins", sans-serif;
+  font-size: $main-text;
+  font-weight: 400;
+}
+
+/// @group 10-estilos-generales
+h1 {
+  padding: 0;
+  margin: 0;
+  font-weight: 800;
+  font-size: 36px;
+}
+
+/// @group 10-estilos-generales
+h2 {
+  font-weight: 400;
+  font-size: 28px;
+  margin: 15px;
+}
+
+/// @group 10-estilos-generales
+h3 {
+  font-weight: 400;
+  text-decoration: underline;
+  text-decoration-color: $primary-color;
+  font-size: 24px;
+}
+
+/// @group 10-estilos-generales
+p {
+  margin: 15px 0;
+}
+
+/// @group 10-estilos-generales
+img {
+  max-width: 100%;
+}
+
+/// @group 10-estilos-generales
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: $header-height;
+  display: flex;
+  align-items: center;
+  background-color: $light-color;
+  padding: 0 $lateral-padding;
+  z-index: 100;
+
+  .logo {
+    height: $header-height;
+
+    display: flex;
+    align-items: center;
+
+    a {
+      height: $logo-height;
+
+      img {
+        height: $logo-height;
+      }
+    }
+  }
+
+  .lang {
+    height: $header-height;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+
+    a {
+      height: $lang-height;
+
+      img {
+        height: $lang-height;
+      }
+    }
+  }
+
+  nav {
+    ul {
+      display: flex;
+      justify-content: space-between;
+      list-style-type: none;
+    }
+
+    @include no-style-link;
+  }
+}
+
+/// @group 10-estilos-generales
+main {
+  margin-top: $header-height;
+}
+
+/// @group 10-estilos-generales
+footer {
+  background-color: $light-color-variant;
+  padding: $vertical-padding $lateral-padding 0;
+
+  .logo {
+    width: 350px;
+  }
+
+  .social-media {
+    width: 350px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-top: 30px;
+
+    .icon {
+      width: $social-icon-width;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    @include no-style-link;
+
+    li {
+      margin-bottom: 15px;
+    }
+  }
+
+  .footer-heading {
+    color: $dark-color-variant;
+  }
+
+  #footer-copyright {
+    text-align: center;
+    color: $dark-color-variant;
+  }
+}
+
+/// @group 06-columnas
+.row {
+  display: flex;
+}
+
+/// @group 06-columnas
+@for $i from 1 to $column-max + 1 {
+  .col-#{$i} {
+    width: grid($i, $column-max);
+  }
+}
+
+/// @group 10-estilos-generales
+.high-bottom-margin {
+  margin-bottom: $inner-section-margin;
+}
+
+/// @group 10-estilos-generales
+.medium-top-margin {
+  margin-top: calc($inner-section-margin/2);
+}
+
+/// @group 10-estilos-generales
+.small-top-margin {
+  margin-top: calc($inner-section-margin/3);
+}
+
+/// @group 11-secciones
+.section {
+  padding: $vertical-padding $lateral-padding;
+}
+
+/// @group 11-secciones
+@each $name, $color in $colors {
+  .#{$name}-section {
+    @extend .section;
+    background-color: $color;
+  }
+}
+
+/// @group 12-tarjetas
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 50px 25px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
+}
+
+/// @group 12-tarjetas
+@each $name, $color in $dark-colors {
+  .#{$name}-card {
+    @extend .card;
+    background-color: $color;
+    color: $light-color;
+  }
+}
+
+/// @group 12-tarjetas
+@each $name, $color in $light-colors {
+  .#{$name}-card {
+    @extend .card;
+    background-color: $color;
+    color: $dark-color;
+  }
+}
+
+/// @group 12-tarjetas
+.card-section {
+  .card {
+    &:nth-child(2) {
+      margin-left: grid(1, $column-max);
+      margin-right: grid(1, $column-max);
+    }
+  }
+}
+
+/// @group 09-sliders
+.home-slider {
+  @include slider("../img/horneando-con-pasion.jpg");
+}
+
+/// @group 12-botones
+.button {
+  border: none;
+  color: $dark-color;
+  padding: 10px;
+  border-radius: 15px;
+  font-size: $button-text;
+
+  @include no-style-link;
+}
+
+/// @group 12-botones
+@each $name, $color in $dark-colors {
+  .#{$name}-button {
+    @extend .button;
+    background-color: $color;
+    color: $light-color;
+
+    &:hover {
+      filter: brightness(105%);
+    }
+  }
+}
+
+/// @group 12-botones
+@each $name, $color in $light-colors {
+  .#{$name}-button {
+    @extend .button;
+    background-color: $color;
+    color: $dark-color;
+
+    &:hover {
+      filter: brightness(95%);
+    }
+  }
+}
+
+/// @group 08-iconos
+.icon {
+  width: $icon-width;
+}
+
+/// @group 10-estilos-generales
+.right-aligned-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+/// @group 10-estilos-generales
+.centered-block {
+  width: 25ch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/// @group 10-estilos-generales
+#arrow-1 {
+  @include arrow(45deg, 0, -$icon-width);
+}
+
+/// @group 10-estilos-generales
+#arrow-2 {
+  @include arrow(
+    $rotation: 170deg,
+    $top: calc($icon-width/2),
+    $left: $icon-width * 2
+  );
+}
+
+/// @group 10-estilos-generales
+#arrow-3 {
+  @include arrow(
+    $rotation: 200deg,
+    $top: calc($icon-width/2),
+    $left: $icon-width
+  );
+}
+
+/// @group 10-estilos-generales
+#amasamos-container {
+  position: relative;
+  bottom: -100px;
+}

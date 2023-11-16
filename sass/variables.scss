@@ -1,0 +1,88 @@
+////
+/// @author Ángel Martínez Gallurt
+////
+
+/// @group 01-colores-principales
+$dark-color: #130e01;
+
+/// @group 01-colores-principales
+$light-color: #fff;
+
+/// @group 01-colores-principales
+$primary-color: #ff8400;
+
+/// @group 01-colores-principales
+$secondary-color: #fff5d6;
+
+/// @group 01-colores-principales
+$accent-color: #cf4307;
+
+/// @group 02-colores-adicionales
+$light-color-variant: #f7f7f7;
+/// @group 02-colores-adicionales
+$primary-color-variant: #ffedd9;
+/// @group 02-colores-adicionales
+$primary-color-variant2: #ffce99;
+
+/// @group 02-colores-adicionales
+$dark-color-variant: rgba(0, 0, 0, 0.4);
+/// @group 02-colores-adicionales
+$semitransparent-primary-color: rgba(255, 132, 0, 0.7);
+
+/// @group 03-mapas-de-colores
+$light-colors: (
+  light: $light-color,
+  primary: $primary-color,
+  secondary: $secondary-color,
+  light-variant: $light-color-variant,
+  primary-variant: $primary-color-variant,
+  primary-variant2: $primary-color-variant2,
+);
+
+/// @group 03-mapas-de-colores
+$dark-colors: (
+  dark: $dark-color,
+  accent: $accent-color,
+);
+
+/// @group 03-mapas-de-colores
+$colors: map-merge($light-colors, $dark-colors);
+
+/// @group 04-tipografia
+$main-text: 1.4rem;
+
+/// @group 04-tipografia
+$button-text: 1.4rem;
+
+/// @group 05-margenes
+$header-height: 75px;
+
+/// @group 05-margenes
+$lateral-padding: 7%;
+
+/// @group 05-margenes
+$vertical-padding: 100px;
+
+/// @group 05-margenes
+$inner-section-margin: 100px;
+
+/// @group 06-columnas
+$column-max: 12;
+
+/// @group 07-cabecera
+$logo-height: 40px;
+
+/// @group 07-cabecera
+$lang-height: 50px;
+
+/// @group 08-iconos
+$icon-width: 75px;
+
+/// @group 08-iconos
+$social-icon-width: 50px;
+
+/// @group 09-sliders
+$slide-control-height: 75px;
+
+/// @group 09-sliders
+$slider-height: 425px;
